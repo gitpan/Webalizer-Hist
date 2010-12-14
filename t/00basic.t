@@ -1,6 +1,6 @@
 use Test::More tests => 21;
 
-BEGIN { use_ok 'Data::Webalizer::Hist'; }
+BEGIN { use_ok 'Webalizer::Hist'; }
 
 use strict;
 use warnings;
@@ -48,10 +48,10 @@ my @totals = (
 
 foreach my $t (0, 1) {
   my $src = $t ? "filesource" : "refsource";
-  my $dwh = Data::Webalizer::Hist->new(source => $source[$t]);
-  my $dwhd = Data::Webalizer::Hist->new(source => $source[$t], desc => 0);
-  isa_ok($dwh, 'Data::Webalizer::Hist', "$src, obj, ascending");
-  isa_ok($dwhd, 'Data::Webalizer::Hist', "$src, obj, descending");
+  my $dwh = Webalizer::Hist->new(source => $source[$t]);
+  my $dwhd = Webalizer::Hist->new(source => $source[$t], desc => 0);
+  isa_ok($dwh, 'Webalizer::Hist', "$src, obj, ascending");
+  isa_ok($dwhd, 'Webalizer::Hist', "$src, obj, descending");
   my $month;
   foreach $month (@{$months[$t]}) {
     is_deeply($month, $dwh->month(), "$src, month $$month{month}, descending");

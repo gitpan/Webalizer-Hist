@@ -5,7 +5,7 @@ package Webalizer::Hist;
 use strict;
 use warnings;
 use vars qw($VERSION);
-$VERSION = "0.02";
+$VERSION = "0.03";
 
 
 
@@ -103,23 +103,21 @@ Webalizer::Hist - Perl module to parse the webalizer.hist-file.
 
 =head1 VERSION
 
-This document describes version 0.02 of Webalizer::Hist, released
-2006-02-19.
+This document describes version 0.03 of Webalizer::Hist, released
+2010-12-14.
 
 =head1 SYNOPSIS
 
   use Webalizer::Hist;
   
-  if(my $dwh = Webalizer::Hist->new(source => "webalizer.hist")) {
+  if(my $wh = Webalizer::Hist->new(source => "webalizer.hist")) {
   
     while(my $hashref = $dwh->month()) {
-      print "Got " . $hashref->{totalhits} . " hits in month "
-        . $hashref->{month} . "\n";
+      printf "Got %d hits in month %s\n", $hashref->{totalhits}, $hashref->{month};
     }
   
     if(my $totals = $dwh->totals()) {
-      print "This website used a total of " . $totals->{kbytes}
-        . "KB\n";
+      printf "This website used a total of %d kB\n", $totals->{kbytes};
     }
     
   }
@@ -190,24 +188,22 @@ found in the webalizer file. The hashref contains the following keys:
 
 =head1 SEE ALSO
 
-Website of Webalizer::Hist: L<http://dev.yorhel.nl/Webalizer-Hist/>,
-
 Website of The Webalizer: L<http://www.mrunix.net/webalizer/>.
 
 =head1 BUGS
 
 No known bugs, but that doesn't mean there aren't any. If you find a
 bug please report it at
-L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data::Webalizer::Hist>
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Webalizer::Hist>
  or contact the author.
 
 =head1 AUTHOR
 
-Y. Heling, E<lt>yorhel@cpan.orgE<gt>, (L<http://www.yorhel.nl/>)
+Y. Heling, E<lt>yorhel@cpan.orgE<gt>, (L<http://yorhel.nl/>)
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2006 by Y. Heling
+Copyright (C) 2006-2010 by Y. Heling
 
 This library is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.

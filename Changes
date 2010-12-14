@@ -1,3 +1,7 @@
+0.03 - 2010-12-14
+  - Fixed reference to Data::Webalizer::Hist in test suite
+  - Various minor documentation improvements
+
 0.02 - 2006-02-19
   - renamed from Data::Webalizer::Hist to Webalizer::Hist
 
